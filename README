@@ -1,26 +1,27 @@
-2016.06.26
-This is sourcecode of DCASE Challenge 2016 Task 2. Details of this challenge can be seen here. http://www.cs.tut.fi/sgn/arg/dcase2016/task-sound-event-detection-in-synthetic-audio
+2016.10.11
+This is sourcecode of DCASE Challenge 2016 Task 2. 
+DCASE Challenge 2016: http://www.cs.tut.fi/sgn/arg/dcase2016/task-sound-event-detection-in-synthetic-audio
 Using Mel + DNN's results on development data: F value: 27% (6 dB), F value: 20% (0 dB), F value: 14% (-6 dB)
 
-THIS CODE IS BSD LISCENCED. YOU CAN USE AND MODIFY IT AS YOU WISH. 
-AUTHOR: QIUQIANG KONG, q.kong@surrey.ac.uk
+THIS CODE IS MIT LISCENCED.
+Contact: QIUQIANG KONG, q.kong@surrey.ac.uk
 Centre for Vision, Speech and Signal Processing (CVSSP), UNIVERSITY OF SURREY
 
 ======================================
 
-Pre-requiste:
+Pre-requiste python package:
 librosa
-Hat (https://github.com/qiuqiangkong/Hat)
+hat (https://github.com/qiuqiangkong/Hat)
 
 Usage:
 ------ Preparation ------
-1. modify the paths of dataset in config.py, modify paths of HAT in every file. 
+* modify the paths of dataset in config.py
 
 ------ Train & detect on development datset ------
-1. run prepareData.py 		Calculate features for development data
-2. run main_dnn.py 		Train model on development clips data
-3. run detect.py 		Detect events on development long audio data
+* run prepare_dev_data.py 	Calculate features for development data
+* run main_dev_dnn.py 		Train model on development clips data
+* run main_dev_detect.py 	Detect events on development long audio data
 
 ------ Detect on Privative Evaluation Data ------ 
-1. run prepareData_eva.py	Calculate features for evaluation data
-2. run detect_eva.py		Detect and write out events of evaluation data 
+* run prepare_eva_data.py	Calculate features for evaluation data
+* run main_eva_detect.py	Detect and write out events of evaluation data 

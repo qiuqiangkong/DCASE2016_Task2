@@ -3,10 +3,10 @@ SUMMARY:  Extract features, copy from acoustic_classification_2013
 AUTHOR:   Qiuqiang Kong
 Created:  2016.05.23
 Modified: 2016.06.25
+          2016.10.11 Modify variable name
 --------------------------------------
 '''
 import sys
-sys.path.append('/homes/qkong/my_code2015.5-/python/Hat')
 sys.path.append('activity_detection')
 import numpy as np
 from scipy import signal
@@ -17,7 +17,7 @@ import matplotlib.pyplot as plt
 import cPickle
 import librosa
 from scipy import io
-from Hat.preprocessing import pad_trunc_seq
+from hat.preprocessing import pad_trunc_seq
 from activity_detection import activity_detection
 
 ### readwav
@@ -115,13 +115,14 @@ def ShowResults( results ):
     F_ary = []
     for r in results:
         F_ary.append( r['overall']['F'] )
-    print np.mean( F_ary )
+    print 'mean F value:', np.mean( F_ary )
 
 def WriteOutToTxt( out_path, out_list ):
     f = open( out_path, 'w' )
     for li in out_list:
         f.write( str(li['event_onset']) + '\t' + str(li['event_offset']) + '\t' + li['event_label'] + '\n')
     f.close()
+    print 'Write out detections to', out_path, 'successfully!'
 
 ###    
 # create an empty folder
@@ -130,11 +131,9 @@ def CreateFolder( fd ):
         os.makedirs(fd)
         
 if __name__ == "__main__":
-    CreateFolder('Fe')
-    CreateFolder('Fe/trMel')
-    CreateFolder('Fe/teMel')
-    CreateFolder('Results')
-    CreateFolder('Md')
+    CreateFolder( cfg.dev_fe_fd )
+    CreateFolder( cfg.dev_tr_fe_mel_fd )
+    CreateFolder( cfg.dev_te_fe_mel_fd )
     
-    GetMel( cfg.tr_wav_fd, cfg.tr_fe_mel_fd, n_delete=1 )
-    GetMel( cfg.te_wav_fd, cfg.te_fe_mel_fd, n_delete=1 )
+    GetMel( cfg.dev_tr_wav_fd, cfg.dev_tr_fe_mel_fd, n_delete=1 )
+    GetMel( cfg.dev_te_wav_fd, cfg.dev_te_fe_mel_fd, n_delete=1 )
