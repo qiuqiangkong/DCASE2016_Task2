@@ -10,8 +10,8 @@ Centre for Vision, Speech and Signal Processing (CVSSP), UNIVERSITY OF SURREY
 ======================================
 
 Pre-requiste python package:
-librosa
-hat (https://github.com/qiuqiangkong/Hat)
+pip install librosa
+pip install hat 	Deep learning toolbox, https://github.com/qiuqiangkong/Hat
 
 Usage:
 ------ Preparation ------
